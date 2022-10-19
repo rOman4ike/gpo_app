@@ -1,0 +1,28 @@
+form
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 0 auto
+  width: 38%
+
+  .form-control
+    
+    &:not(:last-child)
+      margin-bottom: 3rem
+
+    &.linked 
+
+      .form-control
+        margin-bottom: 0.5rem
+
+      .link-block
+        display: flex
+        justify-content: flex-end
+
+  .input-block
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    button
+      margin-bottom: 0.5rem
