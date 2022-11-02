@@ -10,33 +10,25 @@
         <nav class="nav">
           <ul class="header-list" v-if="authorized">
             <li class="list-item">
-              <router-link class="link" to="/">Проекты</router-link>
+              <router-link class="link" to="/projects">Проекты</router-link>
             </li>
             
             <li class="list-item">
-              <router-link class="link" to="/">Пользователи</router-link>
+              <router-link class="link" to="/users">Пользователи</router-link>
             </li>
 
             <li class="list-item">
-              <router-link class="link" to="/">Отчеты</router-link>
+              <router-link class="link" to="/reports">Отчеты</router-link>
             </li>
           </ul>
 
           <ul class="header-list" v-else>
             <li class="list-item">
-              <router-link class="nav-item" to="/signup">
-                <app-button>
-                  Регистрация
-                </app-button>
-              </router-link>
+              <router-link class="link" to="/signup">Регистрация</router-link>
             </li>
             
             <li class="list-item">
-              <router-link class="nav-item" to="/login">
-                <app-button>
-                  Вход
-                </app-button>
-              </router-link>
+              <router-link class="link" to="/login">Вход</router-link>
             </li>
           </ul>
         </nav>
@@ -68,27 +60,29 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .header-inner
-    display: flex
-    justify-content: space-between
-    margin: 25px 0
-    align-items: center
+  .header
+    padding: 25px 0
+    margin-bottom: 5rem
+    background-color: rgba(31, 69, 70, 0.1)
 
-    .logo
-      transition: transform .3s
-      width: 70%
-      height: 70%
-
-      &:hover
-        transform: scale(1.2)
-
-    .header-list
+    .header-inner
       display: flex
-      flex-direction: row
+      justify-content: space-between
+      align-items: center
 
-      .list-item:not(:last-child)
-        margin-right: 1.5rem
+      .logo
+        transition: transform .3s
 
-      .link
-        font-size: 1.5rem
+        &:hover
+          transform: scale(1.2)
+
+      .header-list
+        display: flex
+        flex-direction: row
+
+        .list-item:not(:last-child)
+          margin-right: 3rem
+
+        .link
+          font-size: 1.5rem
 </style>

@@ -2,7 +2,7 @@
   <div class="signup-block">
 
     <ul class="btn-list">
-      <li>
+      <li class="list-item">
         <app-button 
           @action="formVersion = 'Company'"
           :class="{'unselected': formVersion != 'Company'}"
@@ -62,6 +62,7 @@ export default {
 
 <style lang="sass" scoped>
   .signup-block
+    padding-bottom: 2rem
     
     h1
       text-align: center
@@ -78,5 +79,6 @@ export default {
 
       button
         margin-bottom: 1rem
+        flex-shrink: 1
       
 </style>

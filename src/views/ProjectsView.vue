@@ -1,21 +1,18 @@
 <template>
   <div class="projects-block">
-    <h1>Проекты</h1>
     <app-button>
       <img src="../assets/project.svg" alt="">
       <span>Добавить проект</span>
     </app-button>
 
     <ul class="projects-list">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li v-for="item in 5" :key="item">
+        <img src="@/assets/projectImg-1.png" alt="">
+        <div class="project-info-block">
+          <h2>Женщины правят миром</h2>
+          <p>Описание проекта описание проекта описание описание описание описание описание описание </p>
+        </div>
+      </li>
     </ul>
   </div>
 </template>
@@ -35,22 +32,23 @@ export default {
   .projects-block
     margin: 5rem 0
 
-    h1
-      margin-bottom: 3rem
-
     button
       margin-bottom: 5rem
 
     .projects-list
-      display: grid
-      grid-template-columns: 250px 250px 250px 250px
-      justify-content: space-between
-      gap: 3rem
 
       li
-        width: 250px
-        height: 250px
-        background-color: rgba(255, 255, 255, 0.7)
-        border-radius: 25px
-        border: 2px solid white
+        display: flex
+        justify-content: flex-start
+        padding: 2.5rem 0
+        border-top: 1px solid #0F3D3E
+
+        &:last-child
+          border-bottom: 1px solid #0F3D3E
+
+        img
+          margin-right: 2.5rem
+
+        h2
+          margin-bottom: 1.5rem
 </style>

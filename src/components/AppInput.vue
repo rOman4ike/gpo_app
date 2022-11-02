@@ -54,14 +54,14 @@ export default {
 
     input
       background-color: transparent
-      color: white
+      color: rgba(15, 61, 62, 0.7)
       border: none
-      border-bottom: 2px solid #b3b3b3
+      border-bottom: 2px solid rgba(15, 61, 62, 0.7)
       padding: 0 0.5rem 0.5rem 0
       width: 100%
 
       &:focus
-        border-color: white
+        // border-color: white
 
     label
       position: absolute
@@ -70,15 +70,15 @@ export default {
       left: 0
       right: 0
       pointer-events: none
-      color: rgba(255, 255, 255, 0.7)
+      color: rgba(15, 61, 62, 0.7)
       transform: translate(0)
       transition: transform 0.15s ease-out, font-size 0.15s ease-out, color 0.15s ease-out
 
     input:focus + label,
     input.value + label
       font-size: 0.75rem
-      color: white
-      transform: translate(0, -120%)
+      // color: white
+      transform: translate(0, -60%)
 
     .input-inner
       display: flex
