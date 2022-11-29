@@ -1,88 +1,60 @@
 <template>
-  <header class="header">
+  <div class="header">
     <div class="container">
       <div class="header-inner">
+        
+        <div class="logo">
+          <router-link class="link" to="/">
+            <img src="@/assets/logo.svg">
+          </router-link>
+        </div>
 
-        <router-link to="/">
-          <img class="logo" src="../assets/logo.svg" alt="">
-        </router-link>
+        <nav class="nav" v-if="!isAuthorized">
+          <ul class="nav-list">
+            <li class="list-item">
+              <router-link class="link" to="/login">Вход</router-link>
+            </li>
+            <li class="list-item">
+              <router-link class="link" to="/signup">Регистрация</router-link>
+            </li>
+          </ul>
+        </nav>
 
-        <nav class="nav">
-          <ul class="header-list" v-if="authorized">
+        <div class="nav" v-else>
+          <ul class="nav-list">
             <li class="list-item">
               <router-link class="link" to="/projects">Проекты</router-link>
             </li>
-            
             <li class="list-item">
               <router-link class="link" to="/users">Пользователи</router-link>
             </li>
-
             <li class="list-item">
               <router-link class="link" to="/reports">Отчеты</router-link>
             </li>
           </ul>
+        </div>
 
-          <ul class="header-list" v-else>
-            <li class="list-item">
-              <router-link class="link" to="/signup">Регистрация</router-link>
-            </li>
-            
-            <li class="list-item">
-              <router-link class="link" to="/login">Вход</router-link>
-            </li>
-          </ul>
-        </nav>
-        
-        <div class="user-block" v-if="authorized">
+        <div class="user-block" v-if="isAuthorized">
           <router-link to="/">
-            <img src="../assets/userCircle.svg" alt="">
+            <img src="@/assets/user-link-icon.svg">
           </router-link>
         </div>
 
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
-import AppButton from "./AppButton.vue"
-
 export default {
   data() {
     return {
-      authorized: true,
+      isAuthorized: true,
     }
-  },
-  components: {
-    AppButton
   }
 }
 </script>
 
-<style lang="sass" scoped>
-  .header
-    padding: 25px 0
-    margin-bottom: 5rem
-    background-color: rgba(31, 69, 70, 0.1)
+<style>
 
-    .header-inner
-      display: flex
-      justify-content: space-between
-      align-items: center
-
-      .logo
-        transition: transform .3s
-
-        &:hover
-          transform: scale(1.2)
-
-      .header-list
-        display: flex
-        flex-direction: row
-
-        .list-item:not(:last-child)
-          margin-right: 3rem
-
-        .link
-          font-size: 1.5rem
 </style>

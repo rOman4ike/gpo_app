@@ -1,26 +1,30 @@
 <template>
-  <div class="reports-block">
-    <app-button>
-      <img src="@/assets/reports.svg" alt="">
-      <span>Добавить отчет</span>
-    </app-button>
+  <div class="reports-section">
+    <div class="container">
+      <div class="reports-inner">
+
+        <div class="btn-block">
+          <button class="btn btn-primary crutch-2">
+            <img src="@/assets/report-icon.svg">
+            <span>Добавить отчет</span>
+          </button>
+
+          <button class="btn btn-primary">
+            <img class="center crutch-1" src="@/assets/filter-icon.svg">
+          </button>
+        </div> 
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import AppButton from '@/components/AppButton.vue';
-
 export default {
-  components: {
-    AppButton
-  }
+
 }
 </script>
 
-<style lang="sass" scoped>
-.reports-block
-  margin: 5rem 0
+<style>
 
-  button
-    margin-bottom: 5rem
 </style>

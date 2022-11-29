@@ -1,11 +1,17 @@
-$font-color: #0F3D3E
+$main-color: #0F3D3E
+
 $inactive-font-color: #b3b3b3
 $background-color: #000
+
+$input-bg-color: rgba(31, 69, 70, 0.05)
+$input-border-color: rgba(15, 61, 62, 0.7)
+
+$link-color: rgba(15, 61, 62, 0.7)
 
 body
   position: relative
   // background-color: $background-color
-  color: $font-color
+  color: $main-color
   font-family: "Inter"
   font-weight: 400
 
@@ -14,27 +20,86 @@ h1
   font-size: 2.5rem
 
 h2
-  font-weight: 700
+  font-weight: 400
   font-size: 2rem
 
 h3
-  font-weight: 700
+  font-weight: 400
   font-size: 1.5rem
+
+a
+  color: inherit
+
+button 
+
+  img
+    margin-right: 1rem
+
+
+form
+  input
+    border: 1px solid $input-border-color
+    background: $input-bg-color
+    border-radius: 15px
+    padding: 10px
+    min-width: 50px
 
 .container 
   max-width: 1612px
   margin: 0 auto
   padding: 0 50px
+  z-index: 100
+
+.bg-common
+  min-height: calc(100vh - 130px)
+  position: relative
+
+  // &::before
+  //   content: ""
+  //   background-image: url("@/assets/bg-common.png")
+  //   background-repeat: no-repeat
+  //   position: absolute
+  //   width: 100%
+  //   height: 100%
+  //   bottom: 0
+  //   left: 0
+
+
+  // &::after
+  //   content: ""
+  //   background-image: url("@/assets/bg-common.png")
+  //   background-repeat: no-repeat
+  //   transform: rotate(180deg)
+  //   position: absolute
+  //   width: 100%
+  //   height: 100%
+  //   right: 0
+  //   top: -130px
+
+.common
+  padding-bottom: 2rem
 
 
 .link
+  font-size: 1.25rem
   color: #0F3D3E
 
   &:hover
     border-bottom: 1px solid
     margin-bottom: -1px
 
-button 
+.center
+  text-align: center
 
-  img
-    margin-right: 1rem
+.left
+  text-align: left
+
+.right
+  text-align: right
+
+
+.login-inner,
+.signup-inner
+  h2
+    margin-bottom: 3.75rem
+  

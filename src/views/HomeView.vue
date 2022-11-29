@@ -1,31 +1,21 @@
 <template>
-  <div class="home-block">
-    <h1>Test Header</h1>
+  <div class="home-section bg-common">
+    <div class="container">
+      <div class="home-inner">
+        
+        <h1>TestHeader</h1>
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  data() {
-    return {
-    }
-  }
-};
 
+}
 </script>
 
-<style lang="sass" scoped>
-  .home-block
-    position: relative
-    height: 80vh
+<style>
 
-    h1
-      // margin-top: 50%
-      position: absolute
-      text-transform: uppercase
-      left: 0
-      bottom: 50%
-      transform: translateY(-50%)
-      
 </style>

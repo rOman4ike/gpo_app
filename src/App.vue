@@ -2,7 +2,7 @@
   
   <the-header></the-header>
 
-  <div class="container">
+  <div class="common">
     <router-view />
   </div>
 

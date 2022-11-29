@@ -1,84 +1,102 @@
 <template>
-  <div class="signup-block">
+  <div class="signup-section">
+    <div class="container">
+      <div class="signup-inner">
 
-    <ul class="btn-list">
-      <li class="list-item">
-        <app-button 
-          @action="formVersion = 'Company'"
-          :class="{'unselected': formVersion != 'Company'}"
-        >
-          <img src="../assets/company.svg" alt="">
-          <span>Компания</span>
-        </app-button>
-      </li>
+        <h2 class="center">Регистрация</h2>
 
-      <li>
-        <app-button 
-          @action="formVersion = 'User'"
-          :class="{'unselected': formVersion != 'User'}"
-        >
-          <img src="../assets/user.svg" alt="">
-          <span>Персональный</span>
-        </app-button>
-      </li>
+        <div class="form-block center">
+          <form>
+            
+            <div class="change-form">
+              <a @click="changeForm('user')">Персональный</a>
+              <a @click="changeForm('company')">Компания</a>
+            </div>
 
-    </ul>
+            <div class="user" v-if="isUser == 'user'">
+              <div class="form-label big">
+                <label for="email">Имя</label>
+                <input type="text" id="email">
+              </div>
 
-    <h1>Регистрация</h1>
-    <component :is="componentName"></component>
+              <div class="form-label big">
+                <label for="email">Почта</label>
+                <input type="text" id="email">
+              </div>
 
+              <div class="form-label big">
+                <label for="email">Пароль</label>
+                <input type="password" id="email">
+              </div>
+
+              <div class="form-label big">
+                <label for="email">Повторите пароль</label>
+                <input type="password" id="email">
+              </div>
+            </div>
+
+            <div class="company" v-else>
+              <div class="form-label big">
+                <label for="email">Название компании</label>
+                <input type="text" id="email">
+              </div>
+
+              <div class="form-label big">
+                <label for="email">Имя</label>
+                <input type="text" id="email">
+              </div>
+
+              <div class="form-label big">
+                <label for="email">Почта</label>
+                <input type="text" id="email">
+              </div>
+
+              <div class="form-label big">
+                <label for="email">Пароль</label>
+                <input type="password" id="email">
+              </div>
+
+              <div class="form-label big">
+                <label for="email">Повторите пароль</label>
+                <input type="password" id="email">
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="btn-block center">
+          
+          <button class="btn">
+            <router-link to="/projects">
+              Зарегистрироваться
+            </router-link>
+          </button>
+          
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import AppButton from "../components/AppButton.vue"
-import AppInput from "../components/AppInput.vue"
-import AppCompanyForm from "../components/SignupForms/AppCompanyForm.vue"
-import AppUserForm from "../components/SignupForms/AppUserForm.vue"
 
 export default {
   data() {
     return {
-      nameValue: "",
-      emailValue: "",
-      passwordValue: "",
-      rPasswordValue: "",
-      formVersion: "User",
+      isUser: "user",
     }
   },
-  computed: {
-    componentName() {
-      return `App${this.formVersion}Form`
+  
+  methods: {
+    changeForm(currentForm) {
+      this.isUser = currentForm 
     }
-  },
-  components: {
-    AppButton,
-    AppInput,
-    AppCompanyForm,
-    AppUserForm
   }
 }
 </script>
 
-<style lang="sass" scoped>
-  .signup-block
-    padding-bottom: 2rem
-    
-    h1
-      text-align: center
-      margin-bottom: 7rem
+<style>
 
-    .btn-list
-      position: fixed
-      left: 50px
-      top: 50%
-      transform: translateY(-50%)
-
-      display: flex
-      flex-direction: column
-
-      button
-        margin-bottom: 1rem
-        flex-shrink: 1
-      
 </style>
