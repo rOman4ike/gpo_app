@@ -14,6 +14,17 @@
           </button>
         </div> 
 
+        <ul class="reports-list">
+          <li class="list-item" v-for="item in 5" :key="item">
+            <div class="name-block">
+              <img src="@/assets/inst-logo.svg" alt="">
+              <span>Instagram - 3</span>
+            </div>
+            <p>Американская социальная сеть для обмена фотографиями и видео, осн...</p>
+            <img src="@/assets/user-link-icon.svg" alt="">
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>

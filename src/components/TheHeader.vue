@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" :class="{'gray-block': isAuthorized}">
     <div class="container">
       <div class="header-inner">
         

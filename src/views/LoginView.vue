@@ -1,11 +1,11 @@
 <template>
   <div class="login-section">
     <div class="container">
-      <div class="login-inner">
+      <div class="login-inner center">
 
-        <h2 class="center">Вход</h2>
+        <h2>Вход</h2>
 
-        <div class="form-block center">
+        <div class="form-block">
           <form>
 
             <div class="form-label big">
