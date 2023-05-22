@@ -58,3 +58,81 @@
     flex-direction: column
     justify-content: center
     align-items: center
+
+.projects-block,
+  .projescts-list
+    display: block
+
+    .project-item
+
+      &:not(:last-child)
+        margin-bottom: 30px
+
+      > a
+        display: flex
+        justify-content: space-between
+
+        .img-block
+          width: 280px
+          height: 180px
+          display: flex
+          align-items: center
+          justify-content: center
+
+          img
+            margin: auto
+
+        .description-block
+          h4
+            color: $text-color
+          p
+            color: $additional-text-color
+
+.project-block
+  .project-info
+    display: flex
+    justify-content: space-between
+
+    .img-block
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-right: 20px
+
+      img
+        margin: auto
+
+    .description-block
+      width: 100%
+
+      h4
+        color: $text-color
+      p
+        color: $additional-text-color
+
+  .table-users
+    width: 100%
+
+    th
+      font-family: 'Inter', sans-serif
+      font-style: normal
+      font-weight: 400
+      font-size: 18px
+      line-height: 22px
+      color: rgba(65, 64, 74, 0.85)
+      width: 25%
+      text-align: left
+      padding-bottom: 20px
+
+    td
+      font-family: 'Inter'
+      font-style: normal
+      font-weight: 400
+      font-size: 20px
+      line-height: 24px
+      color: #41404A
+      padding-top: 20px
+      padding-bottom: 20px
+
+    tr:not(:first-child)
+      border-bottom: 1px solid rgba(66, 17, 171, 0.4)
