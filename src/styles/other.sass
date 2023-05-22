@@ -1,24 +1,23 @@
 // StartPage
-
 .start-block
   justify-content: space-between
 
-  h1
-    margin-bottom: 50px
-
-  p
-    margin-bottom: 60px
-
-  .description-block
+  > div
     width: 50%
 
+  .img-block img
+    margin: 0 auto
+
+  @media (max-width: $screen-sm-max)
+    .description-block
+      width: 100%
+
+    .img-block
+      display: none
 
 // LoginPage
 .login-block
   justify-content: center
-
-  h2
-    margin-bottom: 60px
 
   .forget
     margin-top: 10px
@@ -26,11 +25,10 @@
     justify-content: flex-end
 
     a
-      font-size: 20px
+      font-size: 18px
       color: $additional-text-color
 
   .login-bottom
-    margin-top: 60px
     display: flex
     flex-direction: column
     justify-content: center
@@ -38,3 +36,25 @@
 
     .btn
       margin-bottom: 10px
+
+// LoginPage
+.signup-block
+  justify-content: center
+
+  .signup-bottom
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .btn
+      margin-bottom: 10px
+
+.forget-block
+  justify-content: center
+
+  .forget-bottom
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center

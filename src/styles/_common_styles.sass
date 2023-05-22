@@ -1,10 +1,28 @@
+$direction-list: top right bottom left
+
+@for $i from 0 through 60
+  @each $direction in $direction-list
+    .margin-#{$direction}-#{$i}
+      margin-#{$direction}: unquote("#{$i}px")
+
+    .padding-#{$direction}-#{$i}
+      padding-#{$direction}: unquote("#{$i}px")
+
+  .margin-#{$i}
+    margin: unquote("#{$i}px")
+
+  .padding-#{$i}
+    padding: unquote("#{$i}px")
+
 .container
+  position: relative
   max-width: 1612px
   margin: 0 auto
   padding: 0 50px
   z-index: 100
 
 .card
+  position: relative
   background: rgba(255, 255, 255, 0.3)
   border: 1px solid rgba(255, 255, 255, 0.7)
   box-shadow: 0px 0px 20px rgba(66, 17, 171, 0.15)
@@ -12,7 +30,50 @@
   border-radius: 25px
 
   &.with-padding
-    padding: 33px
+    padding: 24px
+
+  &.with-links
+    padding-top: 0
+
+    form
+      padding: 24px
+
+    .links-block
+      display: flex
+      flex-direction: row
+
+      button
+        padding: 11px 0
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: center
+
+        background: none
+        border: none
+        outline: none
+        width: 100%
+        border-bottom: 1px solid rgba(255, 255, 255, 0.75)
+        cursor: pointer
+
+        &.active
+          border: 1px solid rgba(255, 255, 255, 0.75)
+          border-radius: 25px 25px 0px 0px
+
+        &.inactive
+          span
+            color: $innactive-text-color
+
+          img
+            filter: opacity(0.5)
+
+        img
+          margin-right: 10px
+
+        span
+          font-family: 'Inter', sans-serif
+          font-size: 18px
+          color: $main-color
 
 .logo a
   font-family: "Arsenal", sans-serif
@@ -70,6 +131,12 @@
 .text-right
   text-align: right
 
+.text-gray
+  color: $dark-color
+
+.text-color
+  color: $text-color
+
 .form-group
   display: flex
   flex-direction: column
@@ -79,13 +146,13 @@
 
   label
     color: $text-color
-    font-size: 20px
+    font-size: 16px
     margin-bottom: 15px
 
   input
     color: $text-color
-    font-size: 20px
-    padding: 15px
+    font-size: 16px
+    padding: 10px
     width: 500px
     transition: box-shadow 0.3s
 

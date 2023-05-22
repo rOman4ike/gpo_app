@@ -1,8 +1,8 @@
 <template>
   <div class="login-block center-block">
     <div class="login-inner">
-      <h2 class="text-center">Войти</h2>
-      <div class="card with-padding">
+      <h2 class="text-center margin-bottom-36">Войти</h2>
+      <div class="card with-padding margin-bottom-48">
         <form action="">
           <div class="form-group">
             <label for="">Почта</label>
@@ -10,7 +10,7 @@
           </div>
           <div class="form-group">
             <label for="">Пароль</label>
-            <input type="text">
+            <input type="password">
             <div class="forget">
               <router-link to="/forget">Забыль пароль?</router-link>
             </div>

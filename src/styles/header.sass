@@ -4,10 +4,26 @@ header
   left: 0
   top: 0
 
-  &.header
-  margin: 50px 0
+  &.authorized-header
+    position: relative
 
-  .header-inner
+  &.header
+    margin: 25px 0
+
+  .header-inner > div
     display: flex
     flex-direction: row
     justify-content: space-between
+
+    @media (max-width: $screen-xs-max)
+      flex-direction: column
+
+  .nav
+    align-self: center
+
+    .authorized-list
+      li
+        &:not(:last-child)
+          margin-right: 36px
+        a
+          font-size: 24px
