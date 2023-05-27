@@ -6,7 +6,7 @@
           <div class="logo">
             <router-link to="/">
               <img src="@/assets/logo.svg">
-              <span>Absolu<strong>Test</strong></span>
+              <span style="display: none;">Absolu<strong>Test</strong></span>
             </router-link>
           </div>
           <nav class="nav">

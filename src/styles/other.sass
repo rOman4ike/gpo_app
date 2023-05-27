@@ -19,6 +19,25 @@
 .login-block
   justify-content: center
 
+  @media (max-width: $screen-md-max)
+    .login-inner
+      width: 100%
+
+      .form-group input
+        width: 100%
+
+  h2
+    margin-bottom: 36px
+
+    @media (max-width: $screen-md-max)
+      margin-bottom: 18px
+
+  .card
+    margin-bottom: 48px
+
+    @media (max-width: $screen-md-max)
+      margin-bottom: 36px
+
   .forget
     margin-top: 10px
     display: flex
@@ -27,6 +46,9 @@
     a
       font-size: 18px
       color: $additional-text-color
+
+      @media (max-width: $screen-md-max)
+        font-size: 16px
 
   .login-bottom
     display: flex

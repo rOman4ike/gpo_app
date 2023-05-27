@@ -1,6 +1,6 @@
 $direction-list: top right bottom left
 
-@for $i from 0 through 60
+@for $i from 0 through 100
   @each $direction in $direction-list
     .margin-#{$direction}-#{$i}
       margin-#{$direction}: unquote("#{$i}px")
@@ -14,12 +14,46 @@ $direction-list: top right bottom left
   .padding-#{$i}
     padding: unquote("#{$i}px")
 
+  .w-#{$i}
+    width: unquote("#{$i}%")
+
+.bg-img
+  &::before,
+  &::after
+    content: ""
+    top: 0
+    display: block
+    position: absolute
+    width: 100%
+    height: 100%
+    background-size: calc(40vh + 30vw)
+
+  &::before
+    background-image: url("@/assets/bg-loup-2.png")
+    background-repeat: no-repeat
+    background-position: right top
+
+  &::after
+    background-image: url("@/assets/bg-loup-1.png")
+    background-repeat: no-repeat
+    background-position: left bottom
+
+  @media (max-width: $screen-md-max)
+    &::before
+      background-size: calc(50vh + 35vw)
+    &::after
+      background-size: calc(40vh + 20vw)
+
 .container
   position: relative
   max-width: 1612px
   margin: 0 auto
   padding: 0 50px
   z-index: 100
+
+  @media (max-width: $screen-md-max)
+    max-width: 1562px
+    padding: 0 25px
 
 .card
   position: relative
@@ -30,13 +64,13 @@ $direction-list: top right bottom left
   border-radius: 25px
 
   &.with-padding
-    padding: 24px
+    padding: 25px
 
   &.with-links
     padding-top: 0
 
     form
-      padding: 24px
+      padding: 25px
 
     .links-block
       display: flex
@@ -122,6 +156,9 @@ $direction-list: top right bottom left
   display: flex
   align-items: center
 
+  @media (max-width: $screen-md-max)
+    min-height: 100vh
+
 .text-uppercase
   text-transform: uppercase
 
@@ -156,8 +193,11 @@ $direction-list: top right bottom left
     color: $text-color
     font-size: 16px
     padding: 10px
-    width: 500px
+    width: max(35vw, 100%)
     transition: box-shadow 0.3s
+
+    @media (max-width: $screen-md-max)
+      padding: 8px
 
     &:focus
       box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.2)

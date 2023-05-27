@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export const userStore = {
   state: {
+    isAuthorized: false,
     user: {},
     users: [],
     errors: [],

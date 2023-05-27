@@ -1,8 +1,8 @@
 <template>
   <div class="login-block center-block">
     <div class="login-inner">
-      <h2 class="text-center margin-bottom-36">Войти</h2>
-      <div class="card with-padding margin-bottom-48">
+      <h2 class="text-center">Войти</h2>
+      <div class="card with-padding">
         <form action="">
           <div class="form-group">
             <label for="">Почта</label>
@@ -18,7 +18,7 @@
         </form>
       </div>
       <div class="login-bottom">
-        <div>
+        <div class="w-100 text-center">
           <button class="btn primary">Войти</button>
         </div>
         <div>
