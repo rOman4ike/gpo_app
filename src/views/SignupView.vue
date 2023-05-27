@@ -1,8 +1,8 @@
 <template>
   <div class="signup-block center-block">
-    <div class="login-inner">
-      <h2 class="text-center margin-bottom-36">Регистрация</h2>
-      <div class="card with-links margin-bottom-48">
+    <div class="signup-inner">
+      <h2 class="text-center">Регистрация</h2>
+      <div class="card with-links">
         <div class="links-block">
           <button :class="{
             'active': formType == 'user',
@@ -29,15 +29,15 @@
           </div>
           <div class="form-group">
             <label for="">Имя и фамилия</label>
-            <input type="text">
+            <input type="text" v-model.trim="user.fio">
           </div>
           <div class="form-group">
             <label for="">Почта</label>
-            <input type="text">
+            <input type="text" v-model.trim="user.email">
           </div>
           <div class="form-group">
             <label for="">Пароль</label>
-            <input type="password">
+            <input type="password" v-model.trim="user.password">
           </div>
           <div class="form-group">
             <label for="">Повторите пароль</label>
@@ -46,8 +46,8 @@
         </form>
       </div>
       <div class="signup-bottom">
-        <div>
-          <button class="btn primary">Зарегистрироваться</button>
+        <div class="w-100 text-center">
+          <button class="btn primary btn-100" @click="createNewUser()">Зарегистрироваться</button>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
 <script>
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   data() {
@@ -64,11 +64,20 @@ export default {
       formType: 'user'
     }
   },
+  computed: {
+    ...mapState('user', ['user', 'errors'])
+  },
   methods: {
+    ...mapActions('user', ['getUsers', 'createUser']),
     changeFormType(type) {
       this.formType = type
     },
-    ...mapActions('user', ['getUsers'])
+    createNewUser() {
+      let params = this.user
+      this.createUser(params).then(data => {
+        console.log(data);
+      })
+    }
   },
   created() {
     this.getUsers()

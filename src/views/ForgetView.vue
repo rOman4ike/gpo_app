@@ -1,7 +1,7 @@
 <template>
   <div class="forget-block center-block">
     <div class="forget-inner">
-      <h2 class="text-center margin-bottom-36">Восстановление пароля</h2>
+      <h2 class="text-center">Восстановление пароля</h2>
       <div class="card with-padding margin-bottom-48">
         <form action="" v-if='codeIsValid'>
           <div class="text-block margin-bottom-10">
@@ -25,8 +25,8 @@
         </form>
       </div>
       <div class="forget-bottom">
-        <div>
-          <button class="btn primary">Восстановить</button>
+        <div class="w-100 text-center">
+          <button class="btn primary btn-100">Восстановить</button>
         </div>
       </div>
     </div>
