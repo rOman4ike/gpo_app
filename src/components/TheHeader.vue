@@ -22,7 +22,7 @@
         </div>
         <div v-if="isAuthorized">
           <div class="logo">
-            <router-link to="/">
+            <router-link to="/projects">
               <img src="@/assets/logo.svg">
             </router-link>
           </div>
@@ -37,6 +37,9 @@
               <li>
                 <router-link class="link" to='/reports'>Отчеты</router-link>
               </li>
+              <li>
+                <button @click="logout">Выйти</button>
+              </li>
             </ul>
           </nav>
           <router-link to='/signup'>
@@ -49,10 +52,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  data() {
-    return {
-      isAuthorized: false
+  computed: {
+    ...mapState('user', ['isAuthorized'])
+  },
+  methods: {
+    logout() {
+      sessionStorage.clear()
+      this.$router.push('/').then(() => {
+        this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
+      })
     }
   }
 }

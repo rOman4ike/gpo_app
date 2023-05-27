@@ -68,21 +68,29 @@ export default {
     ...mapState('user', ['user', 'errors'])
   },
   methods: {
-    ...mapActions('user', ['getUsers', 'createUser']),
+    ...mapActions('user', ['createUser']),
     changeFormType(type) {
       this.formType = type
     },
     createNewUser() {
       let params = this.user
       this.createUser(params).then(data => {
-        console.log(data);
+        if (data.status == 200) {
+          console.log('success');
+          let userData = JSON.parse(data.config.data)
+          sessionStorage.setItem('isAuthorized', true)
+          sessionStorage.setItem('fio', userData.fio)
+          sessionStorage.setItem('email', userData.email)
+          sessionStorage.setItem('token', data.token)
+          this.$router.push('/projects').then(() => {
+            this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
+          })
+        } else {
+          console.log('error');
+        }
       })
     }
   },
-  created() {
-    this.getUsers()
-    console.log('yep');
-  }
 }
 </script>
 

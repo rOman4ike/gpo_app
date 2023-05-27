@@ -14,6 +14,9 @@ export const userStore = {
     },
     setErrors(state, errors) {
       Vue.set(state, 'errors', errors)
+    },
+    setAuthorized(state, isAuthorized) {
+      state.isAuthorized = isAuthorized
     }
   },
   actions: {
@@ -24,11 +27,17 @@ export const userStore = {
         })
       })
     },
-
     createUser({ commit, state }, params) {
       return new Promise((resolve, reject) => {
         axios.post(`http://88.204.74.60:14888/api/accounts`, params).then(data => {
-          console.log(data);
+          resolve(data)
+        })
+      })
+    },
+    loginUser({ commit, state }, params) {
+      return new Promise((resolve, reject) => {
+        axios.post(`http://88.204.74.60:14888/api/accounts/login`, params).then(data => {
+          resolve(data)
         })
       })
     }

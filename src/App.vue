@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'bg-img': !isAuthorized}">
+  <div :class="{'bg-img': !isAuthorized}" v-cloak>
     <div class='container'>
       <the-header></the-header>
       <router-view />
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import TheHeader from './components/TheHeader.vue'
 
 
@@ -16,8 +16,14 @@ export default {
   computed: {
     ...mapState('user', ['isAuthorized'])
   },
+  methods: {
+    ...mapActions('user', ['setAuthorized'])
+  },
   components: {
     TheHeader
+  },
+  beforeMount() {
+    this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
   }
 }
 </script>
