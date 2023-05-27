@@ -55,6 +55,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -64,7 +67,12 @@ export default {
   methods: {
     changeFormType(type) {
       this.formType = type
-    }
+    },
+    ...mapActions('user', ['getUsers'])
+  },
+  created() {
+    this.getUsers()
+    console.log('yep');
   }
 }
 </script>

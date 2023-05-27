@@ -10,14 +10,20 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, ex quod adipisci quas eligendi quia voluptatum fuga alias saepe vel.</p>
         </div>
       </div>
-      <ul class="list">
+      <ul class="list projects-link-list">
         <li class="list-item">
-          <button @click="isBuilds = true, isUsers = false">
+          <button @click="isBuilds = true, isUsers = false" :class="{
+            'text-color': isBuilds,
+            'add-text-color': isUsers
+          }">
             Сборки
           </button>
         </li>
         <li class="list-item">
-          <button @click="isBuilds = false, isUsers = true">
+          <button @click="isBuilds = false, isUsers = true" :class="{
+            'text-color': isUsers,
+            'add-text-color': isBuilds
+          }">
             Пользователи
           </button>
         </li>
@@ -28,16 +34,16 @@
           <img src="@/assets/plus-icon.svg">
         </button>
         <ul class="list version-list">
-          <li>
+          <li style="width: 100%;">
             <h4>Версии 1.0.0</h4>
-            <table>
+            <table class="table-builds">
               <tr>
                 <th>Сборка</th>
                 <th>Дата публикации</th>
                 <th>Установки</th>
                 <th>Количество отчетов</th>
               </tr>
-              <tr class="card">
+              <tr class="card test" @click="goToReports()">
                 <td>6</td>
                 <td>01.12.2023</td>
                 <td>6</td>
@@ -59,27 +65,19 @@
             <th>Роль</th>
             <th>Приложения</th>
           </tr>
-          <tr>
+          <tr v-for="_ in 3">
             <td>Валерия Алферьева</td>
             <td>alferevav.val@gmail.com</td>
             <td>Разработчик</td>
-            <td>Все приложения</td>
-          </tr>
-          <tr>
-            <td>Валерия Алферьева</td>
-            <td>alferevav.val@gmail.com</td>
-            <td>Разработчик</td>
-            <td>Все приложения</td>
-          </tr>
-          <tr>
-            <td>Валерия Алферьева</td>
-            <td>alferevav.val@gmail.com</td>
-            <td>Разработчик</td>
-            <td>Все приложения</td>
+            <td>
+              <span>Все приложения</span>
+              <span>
+                <img src="@/assets/delete-icon.svg">
+              </span>
+            </td>
           </tr>
         </table>
       </div>
-
     </div>
   </div>
 </template>
@@ -90,6 +88,11 @@ export default {
     return {
       isBuilds: false,
       isUsers: true,
+    }
+  },
+  methods: {
+    goToReports() {
+      this.$router.push('/reports')
     }
   }
 }

@@ -110,7 +110,8 @@
       p
         color: $additional-text-color
 
-  .table-users
+  .table-users,
+  .table-builds
     width: 100%
 
     th
@@ -136,3 +137,41 @@
 
     tr:not(:first-child)
       border-bottom: 1px solid rgba(66, 17, 171, 0.4)
+
+  .table-builds
+
+    td,th
+      padding: 20px
+
+    tr:not(:first-child)
+      border: none
+      outline: 1px solid rgba(255, 255, 255, 0.7)
+      cursor: pointer
+
+      td:first-child
+        border-bottom-left-radius: 25px
+        border-top-left-radius: 25px
+      td:last-child
+        border-bottom-right-radius: 25px
+        border-top-right-radius: 25px
+
+  .projects-link-list
+    display: flex
+    flex-direction: row
+    justify-content: center
+    margin-bottom: 40px
+
+    li > button
+      font-family: 'Inter'
+      font-style: normal
+      font-weight: 400
+      font-size: 24px
+      line-height: 29px
+
+      background: none
+      border: none
+      outline: none
+      cursor: pointer
+
+    li:not(:last-child)
+      margin-right: 50px
