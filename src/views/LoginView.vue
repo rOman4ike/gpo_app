@@ -4,13 +4,19 @@
       <h2 class="text-center">Войти</h2>
       <div class="card with-padding">
         <form action="">
-          <div class="form-group">
+          <div class="form-group" :class="{'error': v$.user.email.$errors.length}">
             <label for="">Почта</label>
-            <input type="text" v-model.trim="user.email">
+            <input type="text" v-model.trim="user.email" @blur="v$.user.email.$touch()">
+            <div class="input-errors" v-for="error of v$.user.email.$errors" :key="error.$uid">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" :class="{'error': v$.user.password.$errors.length}">
             <label for="">Пароль</label>
-            <input type="password" v-model.trim="user.password">
+            <input type="password" v-model.trim="user.password" @blur="v$.user.password.$touch()">
+            <div class="input-errors" v-for="error of v$.user.password.$errors" :key="error.$uid">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
             <div class="forget">
               <router-link to="/forget">Забыль пароль?</router-link>
             </div>
@@ -19,7 +25,7 @@
       </div>
       <div class="login-bottom">
         <div class="w-100 text-center">
-          <button class="btn primary" @click="login()">Войти</button>
+          <button class="btn primary" @click="login()" :disabled="validateBtn">Войти</button>
         </div>
         <div>
           <router-link to="/signup">Регистрация</router-link>
@@ -31,10 +37,20 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import { useVuelidate } from '@vuelidate/core'
+import { required$, email$ } from '@/utils/validators'
 
 export default {
+  setup() {
+    return { v$: useVuelidate() }
+  },
   computed: {
     ...mapState('user', ['user', 'errors']),
+    validateBtn() {
+      return !(!this.v$.$errors.length &&
+        this.v$.user.email.$dirty &&
+        this.v$.user.password.$dirty)
+    }
   },
   methods: {
     ...mapActions('user', ['loginUser']),
@@ -52,11 +68,19 @@ export default {
             this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
           })
         } else {
-          console.log('error');
+          console.log('error')
         }
       })
     }
-  }
+  },
+  validations() {
+    return {
+      user: {
+        email: { required$, email$ },
+        password: { required$ },
+      }
+    }
+  },
 }
 </script>
 

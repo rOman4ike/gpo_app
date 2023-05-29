@@ -187,6 +187,16 @@ $direction-list: top right bottom left
   display: flex
   flex-direction: column
 
+  &.error
+    input
+      border-color: rgba(232, 0, 0, 0.5)
+
+    .error-msg
+      text-align: right
+      color: $error-color
+      font-size: 14px
+      margin-top: 5px
+
   &:not(:last-child)
     margin-bottom: 15px
 
@@ -200,7 +210,7 @@ $direction-list: top right bottom left
     font-size: 16px
     padding: 10px
     width: max(35vw, 100%)
-    transition: box-shadow 0.3s
+    transition: box-shadow, border-color 0.3s
 
     @media (max-width: $screen-md-max)
       padding: 8px
