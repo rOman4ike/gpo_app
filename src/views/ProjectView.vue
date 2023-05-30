@@ -29,12 +29,12 @@
         </li>
       </ul>
       <div v-if="isBuilds">
-        <button class="btn secondary">
+        <button class="btn secondary with-icon margin-bottom-20">
           <span>Добавить проект</span>
           <img src="@/assets/plus-icon.svg">
         </button>
         <ul class="list version-list">
-          <li style="width: 100%;">
+          <li style="width: 100%; display: none;">
             <h4>Версии 1.0.0</h4>
             <table class="table-builds">
               <tr>
@@ -54,7 +54,7 @@
         </ul>
       </div>
       <div v-if="isUsers">
-        <button class="btn secondary">
+        <button class="btn secondary with-icon margin-bottom-20">
           <span>Добавить пользователя</span>
           <img src="@/assets/plus-icon.svg">
         </button>

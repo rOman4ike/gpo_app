@@ -7,12 +7,7 @@ import ProjectsView from "../views/ProjectsView.vue"
 import ProjectView from "../views/ProjectView.vue"
 import UsersView from "../views/UsersView.vue"
 import ReportsView from "../views/ReportsView.vue"
-
-// import ProjectsView from "../views/ProjectsView.vue"
-
-// import ReportsView from "../views/ReportsView.vue"
-// import UsersView from "../views/UsersView.vue"
-
+import UserView from "../views/UserView.vue"
 
 const routes = [
   { path: "/", name: "start", component: StartView },
@@ -23,10 +18,7 @@ const routes = [
   { path: "/projects/:id", name: "project", component: ProjectView },
   { path: "/users", name: "users", component: UsersView },
   { path: "/reports", name: "reports", component: ReportsView },
-
-  // { path: "/projects", name: "projects", component: ProjectsView },
-  // { path: "/reports", name: "reports", component: ReportsView },
-  // { path: "/users", name: "users", component: UsersView },
+  { path: "/user/:id", name: "user", component: UserView },
 ];
 
 const router = createRouter({

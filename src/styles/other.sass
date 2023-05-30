@@ -111,7 +111,7 @@
     align-items: center
 
 .projects-block,
-  .projescts-list
+  .projects-list
     display: block
 
     .project-item
@@ -122,22 +122,44 @@
       > a
         display: flex
         justify-content: space-between
+        padding: 20px
+
+        @media (max-width: $screen-sm-max)
+          justify-content: flex-start
+          align-items: center
+          padding: 10px
 
         .img-block
-          width: 280px
+          min-width: 230px
           height: 180px
           display: flex
           align-items: center
           justify-content: center
 
+          @media (max-width: $screen-sm-max)
+            min-width: auto
+            height: auto
+            padding: 7px
+            width: 25%
+            border-radius: 16px
+
           img
             margin: auto
 
         .description-block
+
           h4
             color: $text-color
+            margin-bottom: 10px
+
+            @media (max-width: $screen-sm-max)
+              margin-bottom: 0
+
           p
             color: $additional-text-color
+
+            @media (max-width: $screen-sm-max)
+              display: none
 
 .project-block
   .project-info
@@ -189,6 +211,15 @@
     tr:not(:first-child)
       border-bottom: 1px solid rgba(66, 17, 171, 0.4)
 
+    td:last-child
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: flex-start
+
+      span:first-child
+        margin-right: 5px
+
   .table-builds
 
     td,th
@@ -226,3 +257,55 @@
 
     li:not(:last-child)
       margin-right: 50px
+
+.user-block
+  margin-top: 76px
+
+  .user-info
+    position: relative
+    max-width: 30vw
+    margin-left: auto
+    margin-right: auto
+    padding: 55px 0
+    padding-bottom: 25px
+    margin-bottom: 25px
+
+    @media (max-width: $screen-sm-max)
+      max-width: 100%
+      padding-top: 38px
+      padding-bottom: 15px
+
+    &::before
+      content: ""
+      width: 23%
+      height: 50px
+      border-radius: 10rem 10rem 0 0
+      position: absolute
+      top: -51px
+      left: 50%
+      transform: translateX(-50%)
+      background: rgba(255, 255, 255, 0.3)
+      border: 1px solid rgba(255, 255, 255, 0.7)
+      box-shadow: 0px 0px 20px rgba(66, 17, 171, 0.15)
+      backdrop-filter: blur(5px)
+
+    .img-block
+      position: absolute
+      left: 50%
+      top: -30%
+      transform: translateX(-50%)
+
+      img
+        width: 90%
+        margin-left: auto
+        margin-right: auto
+        margin-top: -4px
+
+        @media (max-width: $screen-sm-max)
+          width: 70%
+
+    h4
+      color: #41404A
+
+    p
+      color: #41404AF2

@@ -3,7 +3,7 @@
     <div class="login-inner">
       <h2 class="text-center">Войти</h2>
       <div class="card with-padding">
-        <form action="">
+        <form>
           <div class="form-group" :class="{'error': v$.user.email.$errors.length}">
             <label for="">Почта</label>
             <input type="text" v-model.trim="user.email" @blur="v$.user.email.$touch()">
@@ -59,7 +59,8 @@ export default {
       this.loginUser(params).then(data => {
         if (data.status == 200) {
           console.log('success');
-          let userData = JSON.parse(data.config.data)
+          const userData = JSON.parse(data.config.data)
+          console.log(userData);
           sessionStorage.setItem('isAuthorized', true)
           sessionStorage.setItem('fio', userData.fio)
           sessionStorage.setItem('email', userData.email)

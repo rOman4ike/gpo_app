@@ -106,7 +106,7 @@ export default {
       this.createUser(params).then(data => {
         if (data.status == 200) {
           console.log('success');
-          let userData = JSON.parse(data.config.data)
+          const userData = JSON.parse(data.config.data)
           sessionStorage.setItem('isAuthorized', true)
           sessionStorage.setItem('fio', userData.fio)
           sessionStorage.setItem('email', userData.email)
@@ -125,7 +125,7 @@ export default {
       user: {
         fio: { required$ },
         email: { required$, email$ },
-        password: { required$, minLength: minLength$(6) },
+        password: { required$, minLength: minLength$(4) },
       },
       confirmPassword: { required$, sameAs: sameAs$(this.user.password, 'password') }
     }

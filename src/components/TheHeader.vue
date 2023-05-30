@@ -42,7 +42,7 @@
               </li>
             </ul>
           </nav>
-          <router-link to='/signup'>
+          <router-link :to="'/user/' + userId">
             <img src="@/assets/user-icon.svg">
           </router-link>
         </div>
@@ -55,6 +55,11 @@
 import { mapState } from 'vuex'
 
 export default {
+  data() {
+    return {
+      userId: sessionStorage.getItem('id') || 0,
+    }
+  },
   computed: {
     ...mapState('user', ['isAuthorized'])
   },
