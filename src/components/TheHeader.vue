@@ -10,7 +10,7 @@
             </router-link>
           </div>
           <nav class="nav">
-            <ul class="list">
+            <ul class="list header-list">
               <li>
                 <router-link class="link" to='/login'>Вход</router-link>
               </li>

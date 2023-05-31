@@ -258,7 +258,8 @@
     li:not(:last-child)
       margin-right: 50px
 
-.user-block
+.user-block,
+.useredit-block
   margin-top: 76px
 
   .user-info
@@ -309,3 +310,28 @@
 
     p
       color: #41404AF2
+
+.useredit-block
+
+
+  .useredit-form
+    max-width: 30vw
+    margin-left: auto
+    margin-right: auto
+
+    @media (max-width: $screen-sm-max)
+      width: 100%
+      max-width: 100%
+
+    h4
+      margin-bottom: 30px
+
+    .form-group
+      margin-bottom: 30px
+
+    input
+      max-width: 30vw
+
+      @media (max-width: $screen-sm-max)
+        width: 100%
+        max-width: 100%

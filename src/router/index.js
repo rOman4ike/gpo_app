@@ -8,6 +8,7 @@ import ProjectView from "../views/ProjectView.vue"
 import UsersView from "../views/UsersView.vue"
 import ReportsView from "../views/ReportsView.vue"
 import UserView from "../views/UserView.vue"
+import UserEditView from "../views/UserEditView.vue"
 
 const routes = [
   { path: "/", name: "start", component: StartView },
@@ -19,11 +20,14 @@ const routes = [
   { path: "/users", name: "users", component: UsersView },
   { path: "/reports", name: "reports", component: ReportsView },
   { path: "/user/:id", name: "user", component: UserView },
+  { path: "/user/:id/edit", name: "useredit", component: UserEditView },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
 });
 
 export default router;

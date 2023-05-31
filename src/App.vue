@@ -23,7 +23,8 @@ export default {
     TheHeader
   },
   beforeMount() {
-    this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
+    // this.$store.commit('user/setAuthorized', !!sessionStorage.getItem('isAuthorized'))
+    this.$store.commit('user/setAuthorized', true)
   }
 }
 </script>

@@ -48,24 +48,24 @@
             </h4>
           </li>
           <li class="link-item">
-            <a href="">
+            <router-link :to="'/user/' + userId + '/edit'">
               <div>
                 <h5>
                   Личные данные
                 </h5>
               </div>
               <img src="@/assets/arrow-right.svg">
-            </a>
+            </router-link>
           </li>
           <li class="link-item">
-            <a href="">
+            <router-link to="/projects">
               <div>
                 <h5>
                   Активные проекты
                 </h5>
               </div>
               <img src="@/assets/arrow-right.svg">
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -75,7 +75,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      userId: sessionStorage.getItem('id') || 0,
+    }
+  },
 }
 </script>
 
